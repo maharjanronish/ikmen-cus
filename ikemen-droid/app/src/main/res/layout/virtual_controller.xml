@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ikemen GO minimal controller layout.
+     Gamepad-style: D-pad (left) + 4 face buttons in diamond (right) + HV heavy modifier.
+     Hold HV: punches (X/Y) become Z (heavy punch), kicks (A/B) become C (heavy kick).
+     Start / Pause are small buttons tucked in the top-right corner. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:splitMotionEvents="true">
+
+    <!-- ==================== D-PAD (bottom-left) ==================== -->
+    <RelativeLayout
+        android:id="@+id/dpad_container"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="26dp"
+        android:splitMotionEvents="true"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#66FFFFFF">
+
+        <Button android:id="@+id/dp_up" android:text="↑"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="53dp" android:layout_height="53dp"
+            android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+            android:alpha="0.45"
+            android:background="#00000000"/>
+        <Button android:id="@+id/dp_left" android:text="←"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="53dp" android:layout_height="53dp"
+            android:layout_centerVertical="true" android:layout_alignParentLeft="true"
+            android:alpha="0.45"
+            android:background="#00000000"/>
+        <Button android:id="@+id/dp_down" android:text="↓"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="53dp" android:layout_height="53dp"
+            android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:alpha="0.45"
+            android:background="#00000000"/>
+        <Button android:id="@+id/dp_right" android:text="→"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="53dp" android:layout_height="53dp"
+            android:layout_centerVertical="true" android:layout_alignParentRight="true"
+            android:alpha="0.45"
+            android:background="#00000000"/>
+    </RelativeLayout>
+
+    <!-- ============ FACE BUTTONS DIAMOND (bottom-right) ============ -->
+    <RelativeLayout
+        android:id="@+id/button_grid"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="26dp"
+        android:splitMotionEvents="true">
+
+        <!-- Y: medium punch (top) -->
+        <Button android:id="@+id/btn_y" android:text="Y"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="56dp" android:layout_height="56dp"
+            android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+            android:alpha="0.85"
+            android:background="@drawable/round_button" />
+
+        <!-- X: light punch (left) -->
+        <Button android:id="@+id/btn_x" android:text="X"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="56dp" android:layout_height="56dp"
+            android:layout_alignParentLeft="true" android:layout_centerVertical="true"
+            android:alpha="0.85"
+            android:background="@drawable/round_button" />
+
+        <!-- A: light kick (right) -->
+        <Button android:id="@+id/btn_a" android:text="A"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="56dp" android:layout_height="56dp"
+            android:layout_alignParentRight="true" android:layout_centerVertical="true"
+            android:alpha="0.85"
+            android:background="@drawable/round_button" />
+
+        <!-- B: medium kick (bottom) -->
+        <Button android:id="@+id/btn_b" android:text="B"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="56dp" android:layout_height="56dp"
+            android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:alpha="0.85"
+            android:background="@drawable/round_button" />
+    </RelativeLayout>
+
+    <!-- ============ HV: heavy attack modifier (hold) ============ -->
+    <Button android:id="@+id/btn_hv" android:text="HV"
+        android:textSize="17sp" android:textStyle="bold" android:textColor="#FFFFFF"
+        android:layout_width="50dp" android:layout_height="50dp"
+        android:layout_toLeftOf="@id/button_grid"
+        android:layout_alignTop="@id/button_grid"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="16dp"
+        android:alpha="0.9"
+        android:background="@drawable/round_button_heavy" />
+
+    <!-- ============ Start / Pause (top-right, small) ============ -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:splitMotionEvents="true">
+        <Button android:id="@+id/btn_menu" android:text="Pause"
+            android:textSize="12sp" android:textColor="#FFFFFF"
+            android:layout_width="46dp" android:layout_height="46dp"
+            android:alpha="0.6"
+            android:background="@drawable/round_button" />
+        <Button android:id="@+id/btn_start" android:text="Start"
+            android:textSize="12sp" android:textColor="#FFFFFF"
+            android:layout_width="46dp" android:layout_height="46dp"
+            android:layout_marginStart="12dp"
+            android:alpha="0.6"
+            android:background="@drawable/round_button" />
+    </LinearLayout>
+
+</RelativeLayout>
